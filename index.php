@@ -8,14 +8,15 @@
     <script type="text/javascript" src="script/api/geolocation.js"></script>
     <script type="text/javascript" src="script/api/openWeatherMap.js"></script>
     <script type="text/javascript" src="script/filters.js"></script>
-    <script type="text/javascript" src="script/main.js"></script>
+    <script type="text/javascript" src="script/tools.js"></script>
+    <script type="text/javascript" src="script/weather.js"></script>
   </head>
   <body>
     <h1>Your weather</h1>
     <weather>
       <div>
         <p>
-          You are in <span>{{weather.name}}</span>
+          Weather for <span>{{weather.name}}</span>
         </p>
         <p>
           Your temperature: {{weather.main.temp | filterPicker:config.temperature}}
@@ -28,8 +29,15 @@
       <div>
         <h3>Config</h3>
         <p>
-        Show temperature in: 
-        <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in config.temperatureOptions"></select></p>
+          Show temperature in: 
+          <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in config.temperatureOptions"></select>
+        </p>
+
+        <p>
+          Custom city:
+          <input ng-enter="getWeatherByCity()" type="text" ng-model="config.customCity">
+          <button ng-click="getWeatherByCity()">Go</button>
+        </p>
       </div>
     </weather>
   </body>
