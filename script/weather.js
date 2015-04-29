@@ -1,17 +1,43 @@
 "use strict";
 
-angular.module('cdty').directive('weather', function(GeolocationApi, WeatherApi) {
+angular.module('cdty').factory('Config', function($cookies, WEATHER_COOKIE) {
+	// Retrieve configuration from cookie if present 
+	function getConfig() {
+		if (!$cookies.WEATHER_COOKIE) return {
+			'temperature': 'celcius'
+		}
+		return angular.fromJson($cookies.WEATHER_COOKIE);
+	}
+
+	// Save configuration to client cookie
+	function saveConfig(config) {
+		$cookies.WEATHER_COOKIE = angular.toJson(config);
+	}
+
+	return {
+		getConfig: getConfig,
+		saveConfig: saveConfig
+	};
+});
+
+
+angular.module('cdty').directive('weather', function(GeolocationApi, WeatherApi, Config) {
+
 	return {
 		scope: true,
-		link: function(scope) {			
+		link: function(scope) {
 			scope.weather = {};
-			scope.config = {
-				'temperature': 'celcius'
-			};
-			scope.config.temperatureOptions = [
+
+			scope.temperatureOptions = [
 				{'value': 'celcius', 'name': 'Celcius'},
 				{'value': 'fahrenheit', 'name': 'Fahrenheit'},
 			];
+
+			// Client configuration e.g. temperature unit, last entered custom city
+			scope.config = Config.getConfig();
+			scope.$watch('config', function() {
+				Config.saveConfig(scope.config);
+			}, true);
 
 			// Get client location
 			var locationPromise = GeolocationApi.getLocation();

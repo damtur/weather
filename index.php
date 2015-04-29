@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Weather - Codity Ltd</title>
     <script type="text/javascript" src="script/lib/angular.min.js"></script>
+    <script type="text/javascript" src="script/lib/angular-cookies.min.js"></script>
     <script type="text/javascript" src="script/config.js"></script>
     <script type="text/javascript" src="script/api/geolocation.js"></script>
     <script type="text/javascript" src="script/api/openWeatherMap.js"></script>
@@ -30,7 +31,7 @@
         <h3>Config</h3>
         <p>
           Show temperature in: 
-          <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in config.temperatureOptions"></select>
+          <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in temperatureOptions"></select>
         </p>
 
         <p>
