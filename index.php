@@ -11,26 +11,28 @@
     <script type="text/javascript" src="script/filters.js"></script>
     <script type="text/javascript" src="script/tools.js"></script>
     <script type="text/javascript" src="script/weather.js"></script>
-  </head>
-  <body>
-    <h1>Your weather</h1>
-    <weather>
-      <div>
-        <p>
-          Weather for <span>{{weather.name}}</span>
-        </p>
-        <p>
-          Your temperature: {{weather.main.temp | filterPicker:config.temperature}}
-        </p>
 
-        <p>
-          Your pressure: <span>{{weather.main.pressure}} hPa</span>
-        </p>
+    <link rel="stylesheet" type="text/css" href="style/background.css">
+    <link rel="stylesheet" type="text/css" href="style/layout.css">
+  </head>
+  <body weather ng-class="'bck-' + background">
+    <div class="container">
+      <div class="city-name">
+        <span>{{weather.name}}</span>
       </div>
-      <div>
+      <div class="weather-container">
+        <div class="temperature">
+          <span>{{weather.main.temp | filterPicker:config.temperature}}
+        </div>
+
+        <div class="pressure">
+          <span>{{weather.main.pressure}} hPa</span>
+        </div>
+      </div>
+      <div class="config">
         <h3>Config</h3>
         <p>
-          Show temperature in: 
+          Temperature in: 
           <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in temperatureOptions"></select>
         </p>
 
@@ -38,8 +40,10 @@
           Custom city:
           <input ng-enter="getWeatherByCity()" type="text" ng-model="config.customCity">
           <button ng-click="getWeatherByCity()">Go</button>
+
+          <select ng-model="background" ng-options="b.value as b.name for b in backgrounds"></select>
         </p>
       </div>
-    </weather>
+    </div>
   </body>
 </html>

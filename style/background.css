@@ -1,0 +1,59 @@
+body { 
+	background: url("../img/01d.jpg") no-repeat; 
+	background-size: cover;
+}
+
+body.bck-01d {
+	background-image: url("../img/01d.jpg");
+}
+body.bck-01n {
+	background-image: url("../img/01n.jpg");
+}
+body.bck-02d {
+	background-image: url("../img/02d.jpg");
+}
+body.bck-02n {
+	background-image: url("../img/02n.jpg");
+}
+body.bck-03d {
+	background-image: url("../img/03d.jpg");
+}
+body.bck-03n {
+	background-image: url("../img/03n.jpg");
+}
+body.bck-04d {
+	background-image: url("../img/04d.jpg");
+}
+body.bck-04n {
+	background-image: url("../img/04n.jpg");
+}
+body.bck-09d {
+	background-image: url("../img/09d.jpg");
+}
+body.bck-09n {
+	background-image: url("../img/09n.jpg");
+}
+body.bck-10d {
+	background-image: url("../img/10d.jpg");
+}
+body.bck-10n {
+	background-image: url("../img/10n.jpg");
+}
+body.bck-11d {
+	background-image: url("../img/11d.jpg");
+}
+body.bck-11n {
+	background-image: url("../img/11n.jpg");
+}
+body.bck-13d {
+	background-image: url("../img/13d.jpg");
+}
+body.bck-13n {
+	background-image: url("../img/13n.jpg");
+}
+body.bck-50d {
+	background-image: url("../img/50d.jpg");
+}
+body.bck-50n {
+	background-image: url("../img/50n.jpg");
+}

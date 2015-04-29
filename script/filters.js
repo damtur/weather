@@ -7,7 +7,7 @@ angular.module('cdty').filter('fahrenheit', function() {
 	};
 });
 
-angular.module('cdty').filter('celcius', function() {
+angular.module('cdty').filter('celsius', function() {
 	return function(input) {
 		if (!input) return "";
 		return Math.round(parseFloat(input) - 273.15) + "°C";
