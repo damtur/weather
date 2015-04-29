@@ -4,7 +4,8 @@ angular.module('cdty').factory('Config', function($cookies, WEATHER_COOKIE) {
 	// Retrieve configuration from cookie if present 
 	function getConfig() {
 		if (!$cookies.WEATHER_COOKIE) return {
-			'temperature': 'celsius'
+			'temperature': 'celsius',
+			'showConfig': false,
 		}
 		return angular.fromJson($cookies.WEATHER_COOKIE);
 	}

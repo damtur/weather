@@ -6,6 +6,7 @@
 
 html, body {
 	height: 100%;
+	overflow: hidden;
 }
 
 .container {
@@ -43,12 +44,35 @@ html, body {
 	left: 0;
 	right: 0;
 	color: #fff;
-	padding: 2ex 1em;
 	text-align: right;
 }
 
 .config p {
+	padding: 2ex 1em;
 	margin-bottom: .5ex;
+}
+
+.config {
+	transition: .5s ease-in-out;
+}
+
+.config.contracted {
+	transform: translateY(80%);
+	transform: translateY(calc(100% - 5ex));
+}
+
+.toggle-config {
+	overflow: hidden;
+	border: none;
+	cursor: pointer;
+	font-size: 2rem;
+	text-align: right;
+	width: 100%;
+	padding: 0 .5em;
+}
+
+.toggle-config:focus {
+	outline: none;
 }
 
 input, select, button {
