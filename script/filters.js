@@ -19,3 +19,10 @@ angular.module('cdty').filter('filterPicker', function($filter) {
 		return $filter(filterName)(value);
 	};
 });
+
+angular.module('cdty').filter('hPa', function($filter) {
+	return function(input) {
+		if (!input) return "";
+		return Math.round(parseFloat(input)) + " hPa";
+	};
+});

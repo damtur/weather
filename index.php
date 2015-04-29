@@ -28,7 +28,7 @@
         </div>
 
         <div class="pressure">
-          <span>{{weather.main.pressure}} hPa</span>
+          <span>{{weather.main.pressure | hPa}}</span>
         </div>
       </div>
     

@@ -20,6 +20,7 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 				'lon': longitude
 			}
 		});
+		return $http(config);
 	}
 
 	// Get weather from server by providing city name
