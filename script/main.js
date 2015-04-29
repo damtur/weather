@@ -20,6 +20,13 @@ angular.module('cdty').directive('weather', function(GeolocationApi, WeatherApi)
 		scope: true,
 		link: function(scope) {
 			scope.weather = {};
+			scope.config = {
+				'temperature': 'celcius'
+			};
+			scope.config.temperatureOptions = [
+				{'value': 'celcius', 'name': 'Celcius'},
+				{'value': 'fahrenheit', 'name': 'Fahrenheit'},
+			];
 
 			// Get client location
 			var locationPromise = GeolocationApi.getLocation();
