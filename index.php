@@ -5,6 +5,7 @@
     <title>Weather - Codity Ltd</title>
     <script type="text/javascript" src="script/lib/angular.min.js"></script>
     <script type="text/javascript" src="script/lib/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="script/lib/angular-touch.min.js"></script>
     <script type="text/javascript" src="script/config.js"></script>
     <script type="text/javascript" src="script/api/geolocation.js"></script>
     <script type="text/javascript" src="script/api/openWeatherMap.js"></script>
@@ -15,10 +16,11 @@
     <link rel="stylesheet" type="text/css" href="style/background.css">
     <link rel="stylesheet" type="text/css" href="style/layout.css">
   </head>
-  <body weather ng-class="'bck-' + background">
-    <div class="container">
+  <body weather ng-class="'bck-' + weather.weather[0].icon">
+    <div class="container" ng-if="weather">
       <div class="city-name">
-        <span>{{weather.name}}</span>
+        <button type="button" ng-show="cityEditing" ng-click="getWeatherByCity()">ok</button><!--
+      --><input type="text" ng-class="{editing: cityEditing}" ng-model="weather.name" ng-enter="getWeatherByCity()" ng-focus="cityFocus()"></input>
       </div>
       <div class="weather-container">
         <div class="temperature">
@@ -29,19 +31,12 @@
           <span>{{weather.main.pressure}} hPa</span>
         </div>
       </div>
-      <div class="config">
-        <h3>Config</h3>
+    
+      <div class="config" ng-class="{contracted: !config.showConfig}">
+        <button class="toggle-config" ng-click="config.showConfig = !config.showConfig">•••</button>
         <p>
           Temperature in: 
           <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in temperatureOptions"></select>
-        </p>
-
-        <p>
-          Custom city:
-          <input ng-enter="getWeatherByCity()" type="text" ng-model="config.customCity">
-          <button ng-click="getWeatherByCity()">Go</button>
-
-          <select ng-model="background" ng-options="b.value as b.name for b in backgrounds"></select>
         </p>
       </div>
     </div>

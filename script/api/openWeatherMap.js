@@ -13,7 +13,6 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 
 	// Get weather from server by providing latitude and longitude
 	function getWeatherByCoorditates(longitude, latitude) {
-
 		var config = _getBaseConfig();
 		angular.extend(config, {
 			params: {
@@ -21,8 +20,6 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 				'lon': longitude
 			}
 		});
-
-		return $http(config);
 	}
 
 	// Get weather from server by providing city name
