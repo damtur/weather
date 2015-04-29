@@ -7,8 +7,8 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 	function _getBaseConfig() {
 		return {
 			method: 'GET',
-      url: WEATHER_API_URL
-    }
+			url: WEATHER_API_URL
+		}
 	}
 
 	// Get weather from server by providing latitude and longitude
@@ -16,11 +16,11 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 
 		var config = _getBaseConfig();
 		angular.extend(config, {
-      params: {
-      	'lat': latitude,
-      	'lon': longitude
-      }
-    });
+			params: {
+				'lat': latitude,
+				'lon': longitude
+			}
+		});
 
 		return $http(config);
 	}
@@ -29,9 +29,9 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 	function getWeatherByCity(cityName) {
 		var config = _getBaseConfig();
 		angular.extend(config, {
-      params: {
-      	'q': cityName
-      }
+			params: {
+				'q': cityName
+			}
 		});
 
 		return $http(config);
