@@ -133,3 +133,8 @@ select option {
 	background: #333;
 	color: white;
 }
+
+p.copyright {
+	font-size: .5rem;
+	padding: 4ex 2em;
+}

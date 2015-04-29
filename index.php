@@ -38,6 +38,7 @@
           Temperature in: 
           <select ng-model="config.temperature" ng-options="temperature.value as temperature.name for temperature in temperatureOptions"></select>
         </p>
+        <p class="copyright">Copyright by Codity Ltd 2015</p>
       </div>
     </div>
   </body>
