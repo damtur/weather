@@ -17,10 +17,16 @@
     <link rel="stylesheet" type="text/css" href="style/layout.css">
   </head>
   <body weather ng-class="'bck-' + weather.weather[0].icon">
+    <div ng-if="error" class="error-box">
+      <span>{{error}}</span>
+      <button type="button" ng-click="closeError()">✕</button>
+    </div>
     <div class="container" ng-if="weather">
       <div class="city-name">
         <button type="button" ng-show="cityEditing" ng-click="getWeatherByCity()">ok</button><!--
       --><input type="text" ng-class="{editing: cityEditing}" ng-model="weather.name" ng-enter="getWeatherByCity()" ng-focus="cityFocus()"></input>
+
+        <span>Click to enter city</span>
       </div>
       <div class="weather-container">
         <div class="temperature">

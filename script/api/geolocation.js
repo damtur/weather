@@ -6,8 +6,8 @@ angular.module('cdty').factory('GeolocationApi', function($q) {
 	// Get location from client browser if possible
 	function getLocation() {
 
-    return $q(function(resolve, reject) {
-    	// check browser
+		return $q(function(resolve, reject) {
+			// check browser support
 			if ("geolocation" in navigator) {
 
 				// geolocation is available
@@ -16,11 +16,11 @@ angular.module('cdty').factory('GeolocationApi', function($q) {
 						'longitude': position.coords.longitude,
 						'latitude': position.coords.latitude
 					});
-				});
+				}, reject);
 			} else {
 				reject("Geolocation is not available.");
 			}
-    });
+		});
 	}
 
 	return {

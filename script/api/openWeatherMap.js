@@ -3,7 +3,7 @@
 // Create api to retrive location via html 5
 angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 
-	// common config for all calls
+	// Common config for all calls
 	function _getBaseConfig() {
 		return {
 			method: 'GET',
@@ -31,7 +31,6 @@ angular.module('cdty').factory('WeatherApi', function($http, WEATHER_API_URL) {
 				'q': cityName
 			}
 		});
-
 		return $http(config);
 	}
 
